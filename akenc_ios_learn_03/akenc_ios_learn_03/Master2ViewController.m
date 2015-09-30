@@ -6,21 +6,21 @@
 //  Copyright © 2015年 akenc. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "Master2ViewController.h"
 #import "DetailViewController.h"
 
-@interface MasterViewController ()
+@interface Master2ViewController ()
 
 @property NSMutableArray *objects;
 @end
 
-@implementation MasterViewController
+@implementation Master2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -69,11 +69,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+    
     NSDate *object = self.objects[indexPath.row];
     cell.textLabel.text = [object description];
-    return cell;                                                                                                            
+    return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
